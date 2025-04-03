@@ -201,9 +201,77 @@ const HomePage = () => {
   return (
     <div>
       
+      {/* Featured Categories */}
+      <section className="py-16 bg-orange-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-neutral-900">Browse by Category</h2>
+            <p className="mt-4 text-lg text-neutral-600">
+              Find the right vehicle category for your needs
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <a href="/vehicles?type=SEDAN" className="group">
+              <div className="bg-white rounded-xl shadow-md overflow-hidden transition-all hover:shadow-lg">
+                <div className="p-6 text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary-light/30 flex items-center justify-center group-hover:bg-primary-light transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 17h14m-11-3h2m6 0h2M3 10h18M5 7h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-primary transition-colors">Sedans</h3>
+                </div>
+              </div>
+            </a>
+            
+            <a href="/vehicles?type=SUV" className="group">
+              <div className="bg-white rounded-xl shadow-md overflow-hidden transition-all hover:shadow-lg">
+                <div className="p-6 text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary-light/30 flex items-center justify-center group-hover:bg-primary-light transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 17h14m-11-3h2m6 0h2M3 8h18M7 4h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-primary transition-colors">SUVs</h3>
+                </div>
+              </div>
+            </a>
+            
+            <a href="/vehicles?type=TRUCK" className="group">
+              <div className="bg-white rounded-xl shadow-md overflow-hidden transition-all hover:shadow-lg">
+                <div className="p-6 text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary-light/30 flex items-center justify-center group-hover:bg-primary-light transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M16 15v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2m9-4H3.4a.4.4 0 0 1-.4-.4V5a2 2 0 0 1 2-2h11.6a2 2 0 0 1 2 2v6h2a2 2 0 0 1 2 2v.5a.5.5 0 0 1-.5.5h-1.5" />
+                      <circle cx="7" cy="16" r="2" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-primary transition-colors">Trucks</h3>
+                </div>
+              </div>
+            </a>
+            
+            <a href="/vehicles?fuelType=ELECTRIC" className="group">
+              <div className="bg-white rounded-xl shadow-md overflow-hidden transition-all hover:shadow-lg">
+                <div className="p-6 text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary-light/30 flex items-center justify-center group-hover:bg-primary-light transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M14.5 11h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20 19l-4.99-5z" />
+                      <path d="M6.5 14a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                      <path d="M10 7l4-6h5l-4 6" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-primary transition-colors">Electric</h3>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
       
       {/* Featured Vehicles Section */}
-      <section className="py-16 bg-neutral-50">
+      <section id="featured" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-neutral-900">Featured Vehicles</h2>
@@ -212,22 +280,25 @@ const HomePage = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div className="md:col-span-1">
-              <VehicleFilter onFilterChange={handleFilterChange} />
+              <div className="sticky top-24 bg-orange-50 rounded-xl p-6 shadow">
+                <h3 className="text-lg font-semibold text-neutral-900 mb-4">Filter Vehicles</h3>
+                <VehicleFilter onFilterChange={handleFilterChange} />
+              </div>
             </div>
             
-            <div className="md:col-span-2 lg:col-span-3">
+            <div className="md:col-span-3">
               {loading ? (
                 <div className="flex justify-center items-center h-64">
-                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
                 </div>
               ) : error ? (
                 <div className="bg-red-50 p-4 rounded-md text-red-700">
                   {error}
                 </div>
               ) : vehicles.length === 0 ? (
-                <div className="bg-neutral-50 p-8 rounded-lg text-center">
+                <div className="bg-orange-50 p-8 rounded-lg text-center">
                   <h3 className="text-lg font-medium text-neutral-800">No vehicles found</h3>
                   <p className="mt-2 text-neutral-600">Try adjusting your filters to find what you're looking for.</p>
                 </div>
@@ -263,7 +334,7 @@ const HomePage = () => {
                             key={i}
                             onClick={() => handlePageChange(i)}
                             className={`relative inline-flex items-center px-4 py-2 border border-neutral-300 bg-white text-sm font-medium ${
-                              page === i ? 'text-blue-600 bg-blue-50' : 'text-neutral-700 hover:bg-neutral-50'
+                              page === i ? 'text-primary bg-orange-50 border-primary' : 'text-neutral-700 hover:bg-neutral-50'
                             }`}
                           >
                             {i + 1}
@@ -291,18 +362,22 @@ const HomePage = () => {
       </section>
       
       {/* Call to Action Section */}
-      <section className="bg-neutral-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to find your dream vehicle?</h2>
-          <p className="text-lg text-neutral-300 mb-8 max-w-3xl mx-auto">
-            Our team of experts is ready to help you find the perfect vehicle for your needs and budget.
-          </p>
-          <a 
-            href="/contact" 
-            className="inline-block bg-blue-600 text-white px-8 py-3 rounded-md font-medium hover:bg-blue-700 transition-colors"
-          >
-            Contact Us Today
-          </a>
+      <section className="bg-primary text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-primary-dark/30 rounded-2xl p-10 backdrop-blur">
+            <div className="text-center max-w-3xl mx-auto">
+              <h2 className="text-3xl font-bold mb-6">Ready to find your dream vehicle?</h2>
+              <p className="text-lg text-orange-100 mb-8">
+                Our team of experts is ready to help you find the perfect vehicle for your needs and budget.
+              </p>
+              <a 
+                href="/contact" 
+                className="inline-block bg-white text-primary px-8 py-3 rounded-md font-medium hover:bg-orange-50 transition-colors"
+              >
+                Contact Us Today
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </div>

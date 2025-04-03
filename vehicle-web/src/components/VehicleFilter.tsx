@@ -54,7 +54,7 @@ const VehicleFilter = ({ onFilterChange }: VehicleFilterProps) => {
             name="brand"
             value={filters.brand}
             onChange={handleInputChange}
-            className="w-full rounded-md border-neutral-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            className="w-full rounded-md border-neutral-300 shadow-sm focus:border-primary focus:ring-primary"
           >
             <option value="">All Brands</option>
             <option value="Toyota">Toyota</option>
@@ -76,7 +76,7 @@ const VehicleFilter = ({ onFilterChange }: VehicleFilterProps) => {
             name="type"
             value={filters.type}
             onChange={handleInputChange}
-            className="w-full rounded-md border-neutral-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            className="w-full rounded-md border-neutral-300 shadow-sm focus:border-primary focus:ring-primary"
           >
             <option value="">All Types</option>
             <option value="SEDAN">Sedan</option>
@@ -97,7 +97,7 @@ const VehicleFilter = ({ onFilterChange }: VehicleFilterProps) => {
             name="fuelType"
             value={filters.fuelType}
             onChange={handleInputChange}
-            className="w-full rounded-md border-neutral-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            className="w-full rounded-md border-neutral-300 shadow-sm focus:border-primary focus:ring-primary"
           >
             <option value="">All Fuel Types</option>
             <option value="PETROL">Petrol</option>
@@ -119,7 +119,7 @@ const VehicleFilter = ({ onFilterChange }: VehicleFilterProps) => {
               value={filters.minPrice}
               onChange={handleInputChange}
               placeholder="Min"
-              className="w-full rounded-md border-neutral-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              className="w-full rounded-md border-neutral-300 shadow-sm focus:border-primary focus:ring-primary"
             />
           </div>
           
@@ -134,14 +134,14 @@ const VehicleFilter = ({ onFilterChange }: VehicleFilterProps) => {
               value={filters.maxPrice}
               onChange={handleInputChange}
               placeholder="Max"
-              className="w-full rounded-md border-neutral-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              className="w-full rounded-md border-neutral-300 shadow-sm focus:border-primary focus:ring-primary"
             />
           </div>
         </div>
         
         <button
           onClick={clearFilters}
-          className="w-full mt-2 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          className="w-full mt-2 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-primary-dark bg-primary-light/50 hover:bg-primary-light focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors"
         >
           Clear Filters
         </button>

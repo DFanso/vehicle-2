@@ -37,7 +37,7 @@ function App() {
                 {/* <Route path="/contact" element={<ContactPage />} /> */}
               </Routes>
             </main>
-            <Footer />
+            {/* <Footer /> */}
           </div>
         </Router>
       </CartProvider>

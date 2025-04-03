@@ -41,15 +41,15 @@ const VehicleCard = ({
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow border border-neutral-200">
-      <div className="relative h-48 overflow-hidden group">
+    <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow border border-neutral-200 group">
+      <div className="relative h-48 overflow-hidden">
         <img 
           src={imageUrl || "https://placehold.co/600x400?text=Vehicle"} 
           alt={`${brand} ${model}`}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
         />
         <div className="absolute top-0 right-0 m-2">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-primary-dark">
             {fuelType}
           </span>
         </div>
@@ -67,7 +67,7 @@ const VehicleCard = ({
         )}
       </div>
       
-      <div className="p-4">
+      <div className="p-5">
         <div className="flex justify-between items-start">
           <div>
             <h3 className="text-lg font-semibold text-neutral-900">
@@ -75,13 +75,13 @@ const VehicleCard = ({
             </h3>
             <p className="text-sm text-neutral-500">{name}</p>
           </div>
-          <span className="text-lg font-bold text-blue-600">
+          <span className="text-lg font-bold text-primary">
             ${price.toLocaleString()}
           </span>
         </div>
         
         <div className="mt-3 flex items-center text-sm text-neutral-500">
-          <span className="inline-block px-2 py-1 bg-neutral-100 rounded-md mr-2">
+          <span className="inline-block px-2 py-1 bg-orange-50 rounded-md mr-2 text-primary-dark">
             {type}
           </span>
         </div>
@@ -93,7 +93,7 @@ const VehicleCard = ({
                 <label htmlFor={`quantity-${id}`} className="sr-only">Quantity</label>
                 <select
                   id={`quantity-${id}`}
-                  className="block w-full rounded-md border-neutral-300 py-1.5 text-sm text-neutral-900 focus:border-blue-500 focus:ring-blue-500"
+                  className="block w-full rounded-md border-neutral-300 py-1.5 text-sm text-neutral-900 focus:border-primary focus:ring-primary"
                   value={quantity}
                   onChange={handleQuantityChange}
                 >
@@ -106,7 +106,7 @@ const VehicleCard = ({
               </div>
               <button 
                 onClick={handleAddToCart}
-                className="flex-1 inline-flex justify-center items-center rounded-md py-2 px-3 text-sm font-medium bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                className="flex-1 inline-flex justify-center items-center rounded-md py-2 px-3 text-sm font-medium bg-primary text-white hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors"
               >
                 Add to Cart
               </button>
@@ -121,7 +121,7 @@ const VehicleCard = ({
           )}
           <Link 
             to={`/vehicles/${id}`}
-            className="mt-2 block w-full text-center text-blue-600 hover:text-blue-700 font-medium text-sm"
+            className="mt-2 block w-full text-center text-primary hover:text-primary-dark font-medium text-sm"
           >
             View Details
           </Link>
