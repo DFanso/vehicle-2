@@ -31,15 +31,7 @@ const Navbar = () => {
               <Link to="/" className="inline-flex items-center px-1 pt-1 border-b-2 border-primary text-sm font-medium text-neutral-900">
                 Home
               </Link>
-              <Link to="/vehicles" className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-neutral-500 hover:text-neutral-700 hover:border-neutral-300">
-                Vehicles
-              </Link>
-              <Link to="/about" className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-neutral-500 hover:text-neutral-700 hover:border-neutral-300">
-                About
-              </Link>
-              <Link to="/contact" className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-neutral-500 hover:text-neutral-700 hover:border-neutral-300">
-                Contact
-              </Link>
+              
             </div>
           </div>
           <div className="hidden sm:ml-6 sm:flex sm:items-center">
@@ -129,15 +121,7 @@ const Navbar = () => {
             <Link to="/" className="bg-primary-light/20 border-l-4 border-primary text-primary-dark block pl-3 pr-4 py-2 text-base font-medium">
               Home
             </Link>
-            <Link to="/vehicles" className="border-l-4 border-transparent text-neutral-500 hover:bg-neutral-50 hover:border-neutral-300 hover:text-neutral-700 block pl-3 pr-4 py-2 text-base font-medium">
-              Vehicles
-            </Link>
-            <Link to="/about" className="border-l-4 border-transparent text-neutral-500 hover:bg-neutral-50 hover:border-neutral-300 hover:text-neutral-700 block pl-3 pr-4 py-2 text-base font-medium">
-              About
-            </Link>
-            <Link to="/contact" className="border-l-4 border-transparent text-neutral-500 hover:bg-neutral-50 hover:border-neutral-300 hover:text-neutral-700 block pl-3 pr-4 py-2 text-base font-medium">
-              Contact
-            </Link>
+          
           </div>
           <div className="pt-4 pb-3 border-t border-neutral-200">
             {isAuthenticated && user ? (
