@@ -1,0 +1,330 @@
+{
+	"info": {
+		"_postman_id": "1dacd346-aa91-4d63-9428-ae0f3b11b284",
+		"name": "Vehicle-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17849869"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"email\": \"john.doe@example.com\",\n    \"password\": \"Test@123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/signup",
+							"host": ["{{base_url}}"],
+							"path": ["api", "auth", "signup"]
+						},
+						"description": "Register a new user\n\nValidation Rules:\n- firstName: Required, 2-50 characters\n- lastName: Required, 2-50 characters\n- email: Required, valid email format\n- password: Required, minimum 8 characters, must contain:\n  - At least one digit\n  - At least one lowercase letter\n  - At least one uppercase letter\n  - At least one special character (@#$%^&+=)"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"email\": \"john.doe@example.com\",\n    \"password\": \"Test@123\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/auth/signup"
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiJ9...\",\n    \"email\": \"john.doe@example.com\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n}"
+						},
+						{
+							"name": "Validation Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"\",\n    \"lastName\": \"D\",\n    \"email\": \"invalid-email\",\n    \"password\": \"weak\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/auth/signup"
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"firstName\": \"First name is required\",\n    \"lastName\": \"Last name must be between 2 and 50 characters\",\n    \"email\": \"Invalid email format\",\n    \"password\": \"Password must contain at least one digit, one lowercase, one uppercase, and one special character\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"john.doe@example.com\",\n    \"password\": \"Test@123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/login",
+							"host": ["{{base_url}}"],
+							"path": ["api", "auth", "login"]
+						},
+						"description": "Login with email and password\n\nValidation Rules:\n- email: Required, valid email format\n- password: Required"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"john.doe@example.com\",\n    \"password\": \"Test@123\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/auth/login"
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiJ9...\",\n    \"email\": \"john.doe@example.com\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n}"
+						},
+						{
+							"name": "Invalid Credentials",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"john.doe@example.com\",\n    \"password\": \"wrongpassword\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/auth/login"
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"error\": \"User not found\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/users/profile",
+							"host": ["{{base_url}}"],
+							"path": ["api", "users", "profile"]
+						},
+						"description": "Get user profile information (requires authentication)"
+					}
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"shippingAddress\": \"123 Main St, City, Country\",\n    \"items\": [\n        {\n            \"vehicleId\": 1,\n            \"quantity\": 1\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/orders",
+							"host": ["{{base_url}}"],
+							"path": ["api", "orders"]
+						},
+						"description": "Create a new order (requires authentication)"
+					}
+				},
+				{
+					"name": "Get User Orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/orders?page=0&size=10&sortBy=createdAt&sortDir=desc",
+							"host": ["{{base_url}}"],
+							"path": ["api", "orders"],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": "createdAt"
+								},
+								{
+									"key": "sortDir",
+									"value": "desc"
+								}
+							]
+						},
+						"description": "Get user's order history (requires authentication)"
+					}
+				}
+			]
+		},
+		{
+			"name": "Vehicles",
+			"item": [
+				{
+					"name": "Get All Vehicles",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{base_url}}/api/vehicles?page=0&size=10&sortBy=price&sortDir=desc&name=Tesla&brand=&model=&minPrice=30000&maxPrice=50000&type=SEDAN&fuelType=ELECTRIC",
+							"host": ["{{base_url}}"],
+							"path": ["api", "vehicles"],
+							"query": [
+								{
+									"key": "page",
+									"value": "0",
+									"description": "Page number (0-based)"
+								},
+								{
+									"key": "size",
+									"value": "10",
+									"description": "Number of items per page"
+								},
+								{
+									"key": "sortBy",
+									"value": "price",
+									"description": "Field to sort by (id, name, price, etc.)"
+								},
+								{
+									"key": "sortDir",
+									"value": "desc",
+									"description": "Sort direction (asc or desc)"
+								},
+								{
+									"key": "name",
+									"value": "Tesla",
+									"description": "Search by vehicle name"
+								},
+								{
+									"key": "brand",
+									"value": "",
+									"description": "Search by brand name"
+								},
+								{
+									"key": "model",
+									"value": "",
+									"description": "Search by model name"
+								},
+								{
+									"key": "minPrice",
+									"value": "30000",
+									"description": "Minimum price"
+								},
+								{
+									"key": "maxPrice",
+									"value": "50000",
+									"description": "Maximum price"
+								},
+								{
+									"key": "type",
+									"value": "SEDAN",
+									"description": "Vehicle type (SEDAN, SUV, etc.)"
+								},
+								{
+									"key": "fuelType",
+									"value": "ELECTRIC",
+									"description": "Fuel type (ELECTRIC, PETROL, etc.)"
+								}
+							]
+						},
+						"description": "Get all vehicles with pagination, sorting, and search options.\n\nSearch Parameters:\n- name: Search by vehicle name\n- brand: Search by brand name\n- model: Search by model name\n- minPrice: Minimum price\n- maxPrice: Maximum price\n- type: Vehicle type (SEDAN, SUV, etc.)\n- fuelType: Fuel type (ELECTRIC, PETROL, etc.)\n\nPagination Parameters:\n- page: Page number (0-based)\n- size: Number of items per page\n- sortBy: Field to sort by (id, name, price, etc.)\n- sortDir: Sort direction (asc or desc)"
+					}
+				},
+				{
+					"name": "Get Vehicle by ID",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{base_url}}/api/vehicles/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "vehicles", "1"]
+						},
+						"description": "Get a specific vehicle by its ID"
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "jwt_token",
+			"value": "your_jwt_token_here"
+		}
+	]
+}
