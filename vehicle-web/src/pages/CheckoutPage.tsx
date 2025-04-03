@@ -44,8 +44,8 @@ const CheckoutPage = () => {
 
   // Don't render the main content while checking auth or redirecting
   if (isLoading) {
-    return <div className="bg-neutral-50 min-h-screen flex items-center justify-center">
-      <p className="text-neutral-600">Loading...</p>
+    return <div className="bg-orange-50 min-h-screen flex items-center justify-center">
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
     </div>;
   }
 
@@ -131,12 +131,12 @@ const CheckoutPage = () => {
   };
 
   return (
-    <div className="bg-neutral-50 min-h-screen">
+    <div className="bg-gradient-to-b from-orange-50 to-white min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 className="text-3xl font-bold text-neutral-900 mb-6">Checkout</h1>
         
         {orderSuccess ? (
-          <div className="bg-green-50 p-6 rounded-lg shadow-sm">
+          <div className="bg-green-50 p-6 rounded-lg shadow-sm border border-green-100">
             <svg className="h-12 w-12 text-green-500 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
             </svg>
@@ -151,7 +151,7 @@ const CheckoutPage = () => {
         ) : (
           <div className="lg:grid lg:grid-cols-12 lg:gap-x-12">
             <div className="lg:col-span-7">
-              <div className="bg-white shadow-sm rounded-lg">
+              <div className="bg-white shadow-sm rounded-xl">
                 <div className="px-4 py-5 sm:p-6">
                   <h2 className="text-lg font-medium text-neutral-900 mb-4">Shipping Information</h2>
                   
@@ -183,7 +183,7 @@ const CheckoutPage = () => {
                           value={formData.shippingAddress}
                           onChange={handleChange}
                           className={`block w-full rounded-md shadow-sm sm:text-sm ${
-                            errors.shippingAddress ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : 'border-neutral-300 focus:border-blue-500 focus:ring-blue-500'
+                            errors.shippingAddress ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : 'border-neutral-300 focus:border-primary focus:ring-primary'
                           }`}
                         />
                         {errors.shippingAddress && (
@@ -205,7 +205,7 @@ const CheckoutPage = () => {
                             value={formData.city}
                             onChange={handleChange}
                             className={`block w-full rounded-md shadow-sm sm:text-sm ${
-                              errors.city ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : 'border-neutral-300 focus:border-blue-500 focus:ring-blue-500'
+                              errors.city ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : 'border-neutral-300 focus:border-primary focus:ring-primary'
                             }`}
                           />
                           {errors.city && (
@@ -226,7 +226,7 @@ const CheckoutPage = () => {
                             value={formData.state}
                             onChange={handleChange}
                             className={`block w-full rounded-md shadow-sm sm:text-sm ${
-                              errors.state ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : 'border-neutral-300 focus:border-blue-500 focus:ring-blue-500'
+                              errors.state ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : 'border-neutral-300 focus:border-primary focus:ring-primary'
                             }`}
                           />
                           {errors.state && (
@@ -249,7 +249,7 @@ const CheckoutPage = () => {
                             value={formData.zipCode}
                             onChange={handleChange}
                             className={`block w-full rounded-md shadow-sm sm:text-sm ${
-                              errors.zipCode ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : 'border-neutral-300 focus:border-blue-500 focus:ring-blue-500'
+                              errors.zipCode ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : 'border-neutral-300 focus:border-primary focus:ring-primary'
                             }`}
                           />
                           {errors.zipCode && (
@@ -270,7 +270,7 @@ const CheckoutPage = () => {
                             value={formData.country}
                             onChange={handleChange}
                             className={`block w-full rounded-md shadow-sm sm:text-sm ${
-                              errors.country ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : 'border-neutral-300 focus:border-blue-500 focus:ring-blue-500'
+                              errors.country ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : 'border-neutral-300 focus:border-primary focus:ring-primary'
                             }`}
                           />
                           {errors.country && (
@@ -292,7 +292,7 @@ const CheckoutPage = () => {
                           value={formData.phoneNumber}
                           onChange={handleChange}
                           className={`block w-full rounded-md shadow-sm sm:text-sm ${
-                            errors.phoneNumber ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : 'border-neutral-300 focus:border-blue-500 focus:ring-blue-500'
+                            errors.phoneNumber ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : 'border-neutral-300 focus:border-primary focus:ring-primary'
                           }`}
                         />
                         {errors.phoneNumber && (
@@ -306,14 +306,14 @@ const CheckoutPage = () => {
                         <button
                           type="button"
                           onClick={() => navigate('/cart')}
-                          className="bg-white py-2 px-4 border border-neutral-300 rounded-md shadow-sm text-sm font-medium text-neutral-700 hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                          className="bg-white py-2 px-4 border border-neutral-300 rounded-md shadow-sm text-sm font-medium text-neutral-700 hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                         >
                           Back to Cart
                         </button>
                         <button
                           type="submit"
                           disabled={isSubmitting}
-                          className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-70 disabled:cursor-not-allowed"
+                          className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-70 disabled:cursor-not-allowed transition-colors"
                         >
                           {isSubmitting ? 'Processing...' : 'Place Order'}
                         </button>
@@ -325,7 +325,7 @@ const CheckoutPage = () => {
             </div>
             
             <div className="mt-10 lg:mt-0 lg:col-span-5">
-              <div className="bg-white shadow-sm rounded-lg">
+              <div className="bg-white shadow-sm rounded-xl">
                 <div className="px-4 py-5 sm:p-6">
                   <h2 className="text-lg font-medium text-neutral-900 mb-4">Order Summary</h2>
                   
@@ -353,7 +353,7 @@ const CheckoutPage = () => {
                               </div>
                               <div className="mt-1 flex justify-between items-end">
                                 <p className="text-sm text-neutral-500">Qty {item.quantity}</p>
-                                <p className="text-sm font-medium text-neutral-900">${(item.price * item.quantity).toLocaleString()}</p>
+                                <p className="text-sm font-medium text-primary-dark">${(item.price * item.quantity).toLocaleString()}</p>
                               </div>
                             </div>
                           </div>
@@ -377,22 +377,22 @@ const CheckoutPage = () => {
                     </div>
                     <div className="flex justify-between mt-6 border-t border-neutral-200 pt-6">
                       <dt className="text-base font-medium text-neutral-900">Total</dt>
-                      <dd className="text-base font-medium text-neutral-900">${getCartTotal().toLocaleString()}</dd>
+                      <dd className="text-base font-medium text-primary">${getCartTotal().toLocaleString()}</dd>
                     </div>
                   </div>
                 </div>
               </div>
               
-              <div className="mt-6 bg-blue-50 rounded-lg p-4">
+              <div className="mt-6 bg-orange-50 rounded-xl p-4 border border-orange-100">
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
-                    <svg className="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <svg className="h-5 w-5 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                     </svg>
                   </div>
                   <div className="ml-3">
-                    <h3 className="text-sm font-medium text-blue-800">Information</h3>
-                    <div className="mt-2 text-sm text-blue-700">
+                    <h3 className="text-sm font-medium text-primary-dark">Information</h3>
+                    <div className="mt-2 text-sm text-neutral-700">
                       <p>
                         This is a demo checkout page. No actual payment will be processed.
                       </p>
