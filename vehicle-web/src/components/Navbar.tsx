@@ -25,10 +25,10 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <Link to="/" className="text-blue-600 font-bold text-2xl">VehicleStore</Link>
+              <Link to="/" className="text-primary font-bold text-2xl">Store</Link>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-              <Link to="/" className="inline-flex items-center px-1 pt-1 border-b-2 border-blue-500 text-sm font-medium text-neutral-900">
+              <Link to="/" className="inline-flex items-center px-1 pt-1 border-b-2 border-primary text-sm font-medium text-neutral-900">
                 Home
               </Link>
               <Link to="/vehicles" className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-neutral-500 hover:text-neutral-700 hover:border-neutral-300">
@@ -48,7 +48,7 @@ const Navbar = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
               </svg>
               {cartItemCount > 0 && (
-                <span className="absolute -top-2 -right-2 inline-flex items-center justify-center h-5 w-5 text-xs font-bold leading-none text-white bg-blue-600 rounded-full">
+                <span className="absolute -top-2 -right-2 inline-flex items-center justify-center h-5 w-5 text-xs font-bold leading-none text-white bg-primary rounded-full">
                   {cartItemCount}
                 </span>
               )}
@@ -57,8 +57,8 @@ const Navbar = () => {
             {isAuthenticated ? (
               <>
                 <div className="flex items-center mr-4">
-                  <span className="inline-flex items-center justify-center h-8 w-8 rounded-full bg-blue-100">
-                    <span className="text-sm font-medium leading-none text-blue-700">
+                  <span className="inline-flex items-center justify-center h-8 w-8 rounded-full bg-primary-light">
+                    <span className="text-sm font-medium leading-none text-primary-dark">
                       {user?.firstName.charAt(0)}{user?.lastName.charAt(0)}
                     </span>
                   </span>
@@ -66,25 +66,25 @@ const Navbar = () => {
                     {user?.firstName} {user?.lastName}
                   </span>
                 </div>
-                <Link to="/profile" className="text-blue-600 hover:text-blue-700 px-3 py-2 text-sm font-medium">
+                <Link to="/profile" className="text-primary hover:text-primary-dark px-3 py-2 text-sm font-medium">
                   My Profile
                 </Link>
-                <Link to="/order-history" className="text-blue-600 hover:text-blue-700 px-3 py-2 text-sm font-medium">
+                <Link to="/order-history" className="text-primary hover:text-primary-dark px-3 py-2 text-sm font-medium">
                   Orders
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="ml-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium"
+                  className="ml-4 bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-md text-sm font-medium"
                 >
                   Logout
                 </button>
               </>
             ) : (
               <>
-                <Link to="/login" className="text-blue-600 hover:text-blue-700 px-3 py-2 text-sm font-medium">
+                <Link to="/login" className="text-primary hover:text-primary-dark px-3 py-2 text-sm font-medium">
                   Login
                 </Link>
-                <Link to="/signup" className="ml-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+                <Link to="/signup" className="ml-4 bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-md text-sm font-medium">
                   Sign Up
                 </Link>
               </>
@@ -96,7 +96,7 @@ const Navbar = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
               </svg>
               {cartItemCount > 0 && (
-                <span className="absolute -top-2 -right-2 inline-flex items-center justify-center h-5 w-5 text-xs font-bold leading-none text-white bg-blue-600 rounded-full">
+                <span className="absolute -top-2 -right-2 inline-flex items-center justify-center h-5 w-5 text-xs font-bold leading-none text-white bg-primary rounded-full">
                   {cartItemCount}
                 </span>
               )}
@@ -126,7 +126,7 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="sm:hidden">
           <div className="pt-2 pb-3 space-y-1">
-            <Link to="/" className="bg-blue-50 border-l-4 border-blue-500 text-blue-700 block pl-3 pr-4 py-2 text-base font-medium">
+            <Link to="/" className="bg-primary-light/20 border-l-4 border-primary text-primary-dark block pl-3 pr-4 py-2 text-base font-medium">
               Home
             </Link>
             <Link to="/vehicles" className="border-l-4 border-transparent text-neutral-500 hover:bg-neutral-50 hover:border-neutral-300 hover:text-neutral-700 block pl-3 pr-4 py-2 text-base font-medium">
@@ -144,8 +144,8 @@ const Navbar = () => {
               <div>
                 <div className="flex items-center px-4">
                   <div className="flex-shrink-0">
-                    <div className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-blue-100">
-                      <span className="text-sm font-medium leading-none text-blue-700">
+                    <div className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-primary-light">
+                      <span className="text-sm font-medium leading-none text-primary-dark">
                         {user.firstName.charAt(0)}{user.lastName.charAt(0)}
                       </span>
                     </div>
@@ -165,7 +165,7 @@ const Navbar = () => {
                   <Link to="/cart" className="block px-4 py-2 text-base font-medium text-neutral-500 hover:text-neutral-800 hover:bg-neutral-100 flex items-center">
                     Cart
                     {cartItemCount > 0 && (
-                      <span className="ml-2 inline-flex items-center justify-center h-5 w-5 text-xs font-bold leading-none text-white bg-blue-600 rounded-full">
+                      <span className="ml-2 inline-flex items-center justify-center h-5 w-5 text-xs font-bold leading-none text-white bg-primary rounded-full">
                         {cartItemCount}
                       </span>
                     )}
@@ -195,7 +195,7 @@ const Navbar = () => {
                   <Link to="/cart" className="block px-4 py-2 text-base font-medium text-neutral-500 hover:text-neutral-800 hover:bg-neutral-100 flex items-center">
                     Cart
                     {cartItemCount > 0 && (
-                      <span className="ml-2 inline-flex items-center justify-center h-5 w-5 text-xs font-bold leading-none text-white bg-blue-600 rounded-full">
+                      <span className="ml-2 inline-flex items-center justify-center h-5 w-5 text-xs font-bold leading-none text-white bg-primary rounded-full">
                         {cartItemCount}
                       </span>
                     )}

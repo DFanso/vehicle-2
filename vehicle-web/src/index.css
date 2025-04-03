@@ -5,11 +5,32 @@
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light;
-  color: #2D3748;
-  background-color: #F7FAFC;
+  color: #7C2D12;
+  background-color: #FFFBEB;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Add orange theme colors for common Tailwind classes */
+@layer base {
+  :root {
+    --color-primary: #F97316;
+    --color-primary-light: #FDBA74;
+    --color-primary-dark: #C2410C;
+    --color-accent: #FB923C;
+  }
+}
+
+/* Apply orange theme to common Tailwind utility classes */
+.text-primary { color: var(--color-primary); }
+.bg-primary { background-color: var(--color-primary); }
+.border-primary { border-color: var(--color-primary); }
+.text-primary-light { color: var(--color-primary-light); }
+.bg-primary-light { background-color: var(--color-primary-light); }
+.text-primary-dark { color: var(--color-primary-dark); }
+.bg-primary-dark { background-color: var(--color-primary-dark); }
+.text-accent { color: var(--color-accent); }
+.bg-accent { background-color: var(--color-accent); }

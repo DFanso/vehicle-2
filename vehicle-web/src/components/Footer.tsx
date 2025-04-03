@@ -64,17 +64,17 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="bg-gradient-to-r from-blue-800 to-indigo-900 rounded-xl p-8 my-8">
+        <div className="bg-gradient-to-r from-primary-dark to-accent rounded-xl p-8 my-8">
           <div className="text-center">
             <h3 className="text-2xl font-bold text-white mb-3">Join our newsletter</h3>
-            <p className="text-blue-100 mb-6">Get the latest updates and offers straight to your inbox</p>
+            <p className="text-orange-100 mb-6">Get the latest updates and offers straight to your inbox</p>
             <div className="flex flex-col sm:flex-row max-w-md mx-auto gap-3">
               <input 
                 type="email" 
                 placeholder="Enter your email" 
                 className="px-4 py-2 rounded-md flex-grow"
               />
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md font-medium">
+              <button className="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-md font-medium">
                 Subscribe
               </button>
             </div>

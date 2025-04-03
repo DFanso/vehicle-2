@@ -200,28 +200,7 @@ const HomePage = () => {
   
   return (
     <div>
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-700 to-indigo-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="md:w-2/3">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              Find Your Perfect Vehicle
-            </h1>
-            <p className="text-xl mb-8">
-              Browse our extensive collection of quality vehicles with easy filtering and competitive prices.
-            </p>
-            <div className="space-x-4">
-              <a href="/vehicles" className="inline-block bg-white text-blue-700 px-6 py-3 rounded-md font-medium hover:bg-neutral-100 transition-colors">
-                Browse Vehicles
-              </a>
-              <a href="/cart" className="inline-block border border-white text-white px-6 py-3 rounded-md font-medium hover:bg-blue-800 transition-colors">
-                View Cart
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-indigo-800/50 mix-blend-overlay"></div>
-      </section>
+      
       
       {/* Featured Vehicles Section */}
       <section className="py-16 bg-neutral-50">
